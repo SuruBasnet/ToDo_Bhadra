@@ -7,3 +7,6 @@ class ToDo(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     status = models.CharField(max_length=50,choices=status_list)
+
+    def __str__(self):
+        return self.name + ' ' + str(self.id)
