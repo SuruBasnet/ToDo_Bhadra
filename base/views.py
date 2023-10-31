@@ -6,5 +6,8 @@ from .models import ToDo
 
 def home(request):
     objects = ToDo.objects.all()
-    content = {'todos':objects}
+    content = {'todos':objects} # Making the dictionary data to pass on template
     return render(request,'index.html',context=content)
+
+def create(request):
+    return render(request,'create.html')
