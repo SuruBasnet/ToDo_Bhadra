@@ -8,23 +8,24 @@
     <title>Create page</title>
 </head>
 <body>
-    <h1>Create page</h1>
+    {% include 'nav.html' %}
 
-    <form>
+    <form method="POST">
+        {% csrf_token %}
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name">
+          <input type="text" class="form-control" id="name" name="name">
         </div>
         <div class="mb-3">
             <label for="description">Description</label>
-            <textarea class="form-control"  id="description"></textarea>
+            <textarea class="form-control"  id="description" name="description"></textarea>
         </div>
         <div class="mb-3">
             <label for="status" class="form-label">Status</label>
-            <select id="status" class="form-select">
-              <option>Done</option>
-              <option>In progress</option>
-              <option>Not done</option>
+            <select id="status" class="form-select" name="status">
+              <option value="Done">Done</option>
+              <option value="In progress">In progress</option>
+              <option value="Not done">Not done</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
