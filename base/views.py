@@ -35,3 +35,8 @@ def edit(request,pk):
         return redirect('home')
     content = {'method':'edit','todo':todo}
     return render(request,'create.html',context=content)
+
+def delete(request,pk):
+    todo = ToDo.objects.get(id=pk)
+    todo.delete()
+    return redirect('home')
